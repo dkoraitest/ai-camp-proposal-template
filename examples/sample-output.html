@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surfwave Analytics × АкмеЛогистикс</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary-dark: #1F3A2E;
+  --primary-dark-light: #2C4F40;
+  --accent: #F2A53B;
+  --accent-hover: #D9912A;
+  --background-light: #F0EAE0;
+  --white: #FFFFFF;
+
+  --text-on-light: #1F3A2E;
+  --text-on-light-secondary: #4A5568;
+  --text-on-light-muted: #64748B;
+  --text-on-dark: #FFFFFF;
+  --text-on-dark-secondary: #94A3B8;
+  --text-on-dark-muted: #CBD5E1;
+
+  --border-on-dark: #2C4F40;
+  --border-on-light: #E2E8F0;
+
+  --radius: 16px;
+  --radius-pill: 100px;
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); color: var(--text-on-light); line-height: 1.5; }
+
+.header { background: var(--primary-dark); padding: 24px 48px; border-bottom: 1px solid var(--border-on-dark); }
+.header-logo { display: flex; align-items: center; gap: 18px; max-width: 1200px; margin: 0 auto; }
+.brand-block { display: flex; align-items: center; gap: 10px; }
+.brand-name { font-family: var(--font-display); font-size: 22px; color: var(--text-on-dark); }
+.separator { color: var(--accent); font-size: 18px; opacity: 0.6; }
+.client-name { font-family: var(--font-display); font-size: 20px; color: var(--text-on-dark); }
+
+section { padding: 80px 48px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-dark { background: var(--primary-dark); color: var(--text-on-dark); }
+.section-light { background: var(--background-light); color: var(--text-on-light); }
+.section-white { background: var(--white); color: var(--text-on-light); }
+
+.section-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px; }
+.section-title { font-family: var(--font-display); font-size: 42px; font-style: italic; margin-bottom: 48px; }
+.section-dark .section-title { color: var(--background-light); }
+.section-light .section-title, .section-white .section-title { color: var(--accent); }
+
+.hero h1 { font-family: var(--font-display); font-size: 64px; line-height: 1.05; margin-bottom: 24px; }
+.hero p.lead { font-size: 20px; max-width: 720px; color: var(--text-on-dark-secondary); margin-bottom: 40px; }
+
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.metric-value { font-family: var(--font-display); font-size: 44px; color: var(--accent); margin-bottom: 8px; }
+.metric-label { font-size: 14px; color: var(--text-on-dark-secondary); }
+
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.card { background: var(--white); border: 1px solid var(--border-on-light); border-top: 3px solid var(--accent); border-radius: var(--radius); padding: 28px; }
+.card-dark { background: var(--primary-dark-light); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 32px; }
+.card h3, .card-dark h3 { font-family: var(--font-body); font-weight: 700; font-size: 22px; margin-bottom: 12px; }
+.card-dark h3 { color: var(--text-on-dark); }
+.card p { color: var(--text-on-light-secondary); }
+.card-dark p { color: var(--text-on-dark-muted); }
+
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+.team-member { text-align: center; }
+.team-photo { width: 80px; height: 80px; border-radius: 50%; background: var(--primary-dark); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-family: var(--font-display); font-size: 28px; }
+.team-member h4 { font-family: var(--font-display); font-size: 20px; margin-bottom: 4px; }
+.team-member .role { color: var(--accent); font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+.team-member p { font-size: 14px; color: var(--text-on-light-secondary); }
+
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.portfolio-card { background: var(--white); border: 1px solid var(--border-on-light); border-radius: var(--radius); padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.portfolio-badge { display: inline-block; padding: 4px 14px; border: 1px solid var(--accent); color: var(--accent); border-radius: var(--radius-pill); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+.portfolio-card h3 { font-family: var(--font-body); font-weight: 700; font-size: 20px; margin-bottom: 12px; line-height: 1.3; }
+.portfolio-card p { color: var(--text-on-light-secondary); font-size: 15px; }
+
+.footer { background: var(--primary-dark); color: var(--text-on-dark); padding: 64px 48px 48px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.footer h3 { font-family: var(--font-display); font-size: 24px; margin-bottom: 16px; }
+.footer-contacts a { color: var(--text-on-dark); text-decoration: none; display: block; margin-bottom: 8px; }
+.footer-contacts a:hover { color: var(--accent); }
+
+@media (max-width: 768px) {
+  section { padding: 48px 24px; }
+  .header { padding: 16px 24px; }
+  .hero h1 { font-size: 40px; }
+  .section-title { font-size: 32px; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-logo">
+    <div class="brand-block">
+      <span class="brand-name">Surfwave Analytics</span>
+    </div>
+    <span class="separator">×</span>
+    <span class="client-name">АкмеЛогистикс</span>
+  </div>
+</header>
+
+<section class="section-dark hero">
+  <div class="section-inner">
+    <div class="section-label">// Предложение для АкмеЛогистикс</div>
+    <h1>Дашборд воронки продаж, который вы откроете завтра утром.</h1>
+    <p class="lead">Решение для отдела продаж АкмеЛогистикс — единый дашборд воронки на 200 активных сделок. РОП в курсе каждой сделки на каждом этапе. Решения принимаются по данным, не по интуиции.</p>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="section-label">// Surfwave Analytics в цифрах</div>
+    <div class="metrics">
+      <div><div class="metric-value">7</div><div class="metric-label">лет на рынке</div></div>
+      <div><div class="metric-value">80+</div><div class="metric-label">клиентов</div></div>
+      <div><div class="metric-value">12</div><div class="metric-label">стран</div></div>
+      <div><div class="metric-value">24</div><div class="metric-label">человека в команде</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="section-inner">
+    <div class="section-label">// Что мы делаем</div>
+    <h2 class="section-title">Направления.</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h3>BI-консалтинг</h3>
+        <p>Аудит данных, выявление узких мест, дорожная карта дашбордов. Заходим на 2 недели discovery, выходим с roadmap на квартал.</p>
+      </div>
+      <div class="card">
+        <h3>Внедрение дашбордов</h3>
+        <p>Tableau, Power BI, Metabase, Lookerstudio. От требований до пользовательской приёмки за 6-8 недель.</p>
+      </div>
+      <div class="card">
+        <h3>Тренинг команды</h3>
+        <p>Учим маркетологов, аналитиков и руководителей читать данные. Не учим SQL — учим задавать правильные вопросы.</p>
+      </div>
+      <div class="card">
+        <h3>Поддержка после запуска</h3>
+        <p>3-6 месяцев handholding после внедрения. Чиним поломки, дорабатываем, перенастраиваем под изменения бизнеса.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="section-label">// Почему Surfwave Analytics</div>
+    <h2 class="section-title">Преимущества.</h2>
+    <div class="cards-grid">
+      <div class="card-dark">
+        <h3>Только BI, не «всё в IT»</h3>
+        <p>Мы не разрабатываем CRM, не пишем сайты, не делаем рекламу. 100% времени команды — BI и аналитика. Глубина вместо широты.</p>
+      </div>
+      <div class="card-dark">
+        <h3>Команда in-house</h3>
+        <p>Все наши инженеры — штатные. Никаких аутсорс-фриланс прокладок между тобой и человеком, который пишет код.</p>
+      </div>
+      <div class="card-dark">
+        <h3>Опыт в логистике</h3>
+        <p>3 из 80 клиентов — B2B-логистика. Знаем специфику: сезонность, контракты с длинным циклом, KPI водителей и диспетчеров.</p>
+      </div>
+      <div class="card-dark">
+        <h3>Результат с цифрой</h3>
+        <p>В договоре фиксируем измеримый KPI. Не получилось — возврат части стоимости.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="section-inner">
+    <div class="section-label">// Команда</div>
+    <h2 class="section-title">Кто на проекте.</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-photo">АС</div>
+        <h4>Айгерим Сатпаева</h4>
+        <div class="role">CEO</div>
+        <p>12 лет в data. PWC → Beeline (Head of Analytics) → основала Surfwave в 2019. Преподаёт в KIMEP.</p>
+      </div>
+      <div class="team-member">
+        <div class="team-photo">ТБ</div>
+        <h4>Тимур Бектасов</h4>
+        <div class="role">Head of Delivery</div>
+        <p>Бывший Tableau Consulting Partner. 60+ внедрённых дашбордов. Раньше — Data Lead в Kaspi.</p>
+      </div>
+      <div class="team-member">
+        <div class="team-photo">ДК</div>
+        <h4>Дамир Калиев</h4>
+        <div class="role">Senior Engineer</div>
+        <p>8 лет в data engineering. Airflow, dbt, Snowflake. Раньше — Halyk Bank.</p>
+      </div>
+      <div class="team-member">
+        <div class="team-photo">АЖ</div>
+        <h4>Анель Жакыпова</h4>
+        <div class="role">BI Analyst</div>
+        <p>4 года в продуктовой аналитике. Раньше — Chocofamily.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-white">
+  <div class="section-inner">
+    <div class="section-label">// Портфолио</div>
+    <h2 class="section-title">Что уже делали.</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <span class="portfolio-badge">Логистика · 2025</span>
+        <h3>Дашборд воронки продаж</h3>
+        <p>Цикл сделки сократился с 47 до 29 дней за квартал. РОП в курсе каждой сделки на каждом этапе.</p>
+      </div>
+      <div class="portfolio-card">
+        <span class="portfolio-badge">E-commerce · 2024</span>
+        <h3>Аналитика возвратов и причин</h3>
+        <p>Идентифицировали 3 SKU, дающие 60% возвратов. Маркетинг переработал описания — возвраты упали на 38%.</p>
+      </div>
+      <div class="portfolio-card">
+        <span class="portfolio-badge">Финтех · 2025</span>
+        <h3>Дашборд кредитной воронки</h3>
+        <p>Время решения по заявкам сократилось с 3 дней до 6 часов. Подтверждено внутренним аудитом.</p>
+      </div>
+      <div class="portfolio-card">
+        <span class="portfolio-badge">Тренинг · 2024</span>
+        <h3>Программа BI-литерации для команды СEO</h3>
+        <p>12 руководителей за 6 недель. Через 3 месяца — 9 из 12 регулярно открывают дашборд в своих решениях.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing section placeholder.
+     skill make-proposal сознательно не генерирует pricing-блок — это твоя личная часть.
+     Если в КП нужна смета — добавь сюда таблицу со стоимостью под клиента. -->
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h3>Surfwave Analytics</h3>
+      <p style="color: var(--text-on-dark-secondary); max-width: 480px;">BI-консалтинг и внедрение дашбордов для среднего бизнеса.</p>
+    </div>
+    <div class="footer-contacts">
+      <h3>Контакты</h3>
+      <a href="mailto:hello@surfwave-analytics.com">hello@surfwave-analytics.com</a>
+      <a href="tel:+77271234567">+7 (727) 123-45-67</a>
+      <a href="https://surfwave-analytics.com" target="_blank">surfwave-analytics.com</a>
+      <a href="https://linkedin.com/company/surfwave-analytics" target="_blank">LinkedIn</a>
+      <a href="https://t.me/surfwave_analytics" target="_blank">Telegram: @surfwave_analytics</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
